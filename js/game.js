@@ -33,6 +33,7 @@ function boxMove() {
 
 // start();
 // sendNewBoxes();
+// test
 
 // once box has left the scene/player dodge the box
 // isBoxDead()
