@@ -1,0 +1,52 @@
+.player {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  bottom: 0;
+  left: 0px;
+  background-color: green;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  transform: translateX(800px);
+}
+.box2 {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  right: 150px;
+  bottom: 50px;
+}
+.is-jumping {
+  bottom: 50px;
+}
+.container {
+  margin: 0 auto;
+  position: relative;
+  width: 800px;
+  height: 600px;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 5 / 1 / 6 / 2;
+}
+.div2 {
+  grid-area: 3 / 1 / 4 / 2;
+}
