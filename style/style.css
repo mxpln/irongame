@@ -1,19 +1,26 @@
+html {
+  height: 100%;
+}
+body {
+  background: center url("../assets/bg.jpg");
+}
 .player {
   position: absolute;
   height: 50px;
   width: 50px;
-  bottom: 0;
-  left: 50%;
-  background: center / contain no-repeat url("../assets/boxing.png");
+  bottom: 20px;
+  left: 47%;
+  background: center / contain no-repeat url("../assets/pill.png");
 }
 
 .box {
-  width: 50px;
-  height: 50px;
-  background-color: red;
+  width: 100px;
+  height: 100px;
+  background: center / contain no-repeat url("../assets/monstre.png");
   position: absolute;
   left: 0px;
-  bottom: 0px;
+  bottom: 10px;
+
   transform: translateX(750px);
 }
 .box2 {
@@ -21,34 +28,78 @@
   height: 50px;
   background-color: black;
   position: absolute;
-
-  transform: translateX(-800px);
-  right: 0px;
+  transform: translateX(900px);
+  left: 0px;
   bottom: 50px;
 }
+.target {
+  width: 200px;
+  height: 255px;
+  position: absolute;
+
+  bottom: 50%;
+  left: calc(50% - 100px);
+}
+
 .is-jumping {
-  bottom: 50px;
+  bottom: 60%;
 }
 .container {
+  top: 150px;
+  bottom: 0;
   margin: 0 auto;
   position: relative;
   width: 800px;
   height: 600px;
   border: 1px solid #000;
   overflow: hidden;
+  background: center / contain no-repeat url("../assets/city.png");
 }
 
-.parent {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+.kite {
+  background-image: url("../assets/kite.png");
+  background-repeat: no-repeat;
+  display: block;
 }
 
-.div1 {
-  grid-area: 5 / 1 / 6 / 2;
+.kite-kite-1 {
+  width: 200px;
+  height: 252px;
+  background-position: -5px -5px;
 }
-.div2 {
-  grid-area: 3 / 1 / 4 / 2;
+
+.kite-kite-2 {
+  width: 200px;
+  height: 252px;
+  background-position: -5px -267px;
+}
+
+.kite-kite-3 {
+  width: 200px;
+  height: 252px;
+  background-position: -5px -529px;
+}
+
+.kite-kite-4 {
+  width: 200px;
+  height: 252px;
+  background-position: -5px -791px;
+}
+
+.kite-kite-5 {
+  width: 200px;
+  height: 252px;
+  background-position: -5px -1053px;
+}
+
+.kite-kite-6 {
+  width: 200px;
+  height: 252px;
+  background-position: -5px -1315px;
+}
+
+.kite-kite-7 {
+  width: 200px;
+  height: 252px;
+  background-position: -5px -1577px;
 }
