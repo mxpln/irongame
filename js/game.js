@@ -18,10 +18,13 @@ function movePlayer() {
   }
 }
 let x = 800;
+let x_black = 200;
 movePlayer();
 var timer = setInterval(() => {
   x -= 10;
+  x_black -= 14;
   boxMove();
+  boxMoveBlack();
 }, 20);
 
 function boxMove() {
@@ -32,6 +35,15 @@ function boxMove() {
   if (checkBoops(player.getBoundingClientRect(), box.getBoundingClientRect())) {
     console.log("I am colliding !!");
   }
+}
+function boxMoveBlack() {
+  box2.style.transform = `translateX(${-x_black}px)`;
+  if (x_black < -200) {
+    x_black = 800;
+  }
+  // if (checkBoops(player.getBoundingClientRect(), box.getBoundingClientRect())) {
+  //   console.log("I am colliding !!");
+  // }
 }
 function checkBoops(rect1, rect2) {
   if (
