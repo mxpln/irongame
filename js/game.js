@@ -2,13 +2,14 @@ const box = document.querySelector(".box");
 const player = document.querySelector(".player");
 const target = document.querySelector(".target");
 const start = document.querySelector(".start");
-
+let gameRunning = false;
+let intervalId = null;
 function movePlayer() {
   let targetPos = 0;
   let hit = 0;
   document.addEventListener("keydown", move);
   function move(e) {
-    if (e.code === "KeyW") {
+    if (e.code === "KeyW" && gameRunning === true) {
       if (e.repeat) {
         return;
       }
@@ -20,8 +21,9 @@ function movePlayer() {
       }
       if (hit === 18) {
         box.classList.add("stop");
-        clearInterval(timer);
         box.classList.add("fade-out");
+        stop();
+        player.style.bottom = "60%";
       }
       setTimeout(function () {
         player.classList.remove("is-jumping");
@@ -39,15 +41,24 @@ function slideMob() {
     console.log("I am colliding !!");
   }
 }
-
-function timer() {
-  setInterval(() => {
-    x -= 10;
-    slideMob();
-  }, 20);
-}
+let stop = function stop() {
+  if (box.classList.contains("stop")) {
+    console.log("je suis ici parfois");
+    clearInterval(intervalId);
+  }
+};
 
 start.addEventListener("click", timer);
+function timer() {
+  if (!gameRunning) {
+    gameRunning = true;
+    intervalId = setInterval(() => {
+      x -= 10;
+      slideMob();
+    }, 20);
+  }
+}
+
 function checkBoops(rect1, rect2) {
   if (
     rect1.x < rect2.x + rect2.width &&
