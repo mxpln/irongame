@@ -9,10 +9,7 @@ body {
   font-family: "Share Tech Mono", monospace;
   /* position: relative; */
 }
-.start {
-  font-size: 36px;
-  color: white;
-}
+
 .container {
   top: 150px;
   bottom: 0;

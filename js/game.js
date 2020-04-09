@@ -3,6 +3,7 @@ const player = document.querySelector(".player");
 const target = document.querySelector(".target");
 const start = document.querySelector(".start");
 const damage = document.querySelector(".damage");
+const tryAgainBtn = document.querySelector(".tryAgainBtn");
 let gameRunning = false;
 let intervalId = null;
 let damageTaken = 0;
@@ -25,6 +26,7 @@ function movePlayer() {
         box.classList.add("stop");
         box.classList.add("fade-out");
         stop();
+        disableBtn();
         player.style.bottom = "60%";
       }
       setTimeout(function () {
@@ -44,8 +46,10 @@ function slideMob() {
     damage.innerHTML = damageTaken;
   }
   if (damageTaken > 50) {
+    tryAgainBtn.style.visibility = "visible";
     gameRunning = false;
     box.classList.add("stop");
+    disableBtn(true);
     stop();
   }
 }
@@ -54,10 +58,22 @@ let stop = function stop() {
     clearInterval(intervalId);
   }
 };
-
+function tryAgain() {
+  box.classList.remove("stop");
+  gameRunning = false;
+  damageTaken = 0;
+  damage.innerHTML = damageTaken;
+  hit = 0;
+  x = 0;
+  tryAgainBtn.style.visibility = "hidden";
+  box.style.transform = `translateX(750px)`;
+  timer();
+}
+tryAgainBtn.addEventListener("click", tryAgain);
 start.addEventListener("click", timer);
 function timer() {
   if (!gameRunning) {
+    start.style.visibility = "hidden";
     gameRunning = true;
     intervalId = setInterval(() => {
       x -= 10;
@@ -65,7 +81,7 @@ function timer() {
     }, 20);
   }
 }
-
+tryAgainBtn.style.visibility = "hidden";
 function checkBoops(rect1, rect2) {
   if (
     rect1.x < rect2.x + rect2.width &&
@@ -77,5 +93,10 @@ function checkBoops(rect1, rect2) {
   }
   return false;
 }
-
+function disableBtn(z) {
+  start.disabled = z;
+}
+function disabledTry(y) {
+  tryAgainBtn.disabled = y;
+}
 movePlayer();
