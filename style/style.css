@@ -1,48 +1,14 @@
+/* main styles */
 html {
   height: 100%;
 }
 body {
   background: center url("../assets/bg.jpg");
+  /* position: relative; */
 }
-.player {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  bottom: 20px;
-  left: 47%;
-  background: center / contain no-repeat url("../assets/pill.png");
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  background: center / contain no-repeat url("../assets/monstre.png");
-  position: absolute;
-  left: 0px;
-  bottom: 10px;
-
-  transform: translateX(750px);
-}
-.box2 {
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  position: absolute;
-  transform: translateX(900px);
-  left: 0px;
-  bottom: 50px;
-}
-.target {
-  width: 200px;
-  height: 255px;
-  position: absolute;
-
-  bottom: 50%;
-  left: calc(50% - 100px);
-}
-
-.is-jumping {
-  bottom: 60%;
+.start {
+  font-size: 36px;
+  color: white;
 }
 .container {
   top: 150px;
@@ -56,50 +22,81 @@ body {
   background: center / contain no-repeat url("../assets/city.png");
 }
 
+/* game styles */
+.player {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  bottom: 20px;
+  left: 47%;
+  background: center / contain no-repeat url("../assets/pill.png");
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background: center / contain no-repeat url("../assets/monstre.png");
+  position: absolute;
+  left: 100px;
+  bottom: 10px;
+  visibility: visible;
+  opacity: 1;
+
+  transform: translateX(750px);
+}
+.target {
+  width: 200px;
+  height: 255px;
+  position: absolute;
+  bottom: 50%;
+  left: calc(50% - 100px);
+}
+.is-jumping {
+  bottom: 60%;
+}
+
+/* Sprites */
 .kite {
   background-image: url("../assets/kite.png");
   background-repeat: no-repeat;
   display: block;
 }
-
 .kite-kite-1 {
   width: 200px;
   height: 252px;
   background-position: -5px -5px;
 }
-
 .kite-kite-2 {
   width: 200px;
   height: 252px;
   background-position: -5px -267px;
 }
-
 .kite-kite-3 {
   width: 200px;
   height: 252px;
   background-position: -5px -529px;
 }
-
 .kite-kite-4 {
   width: 200px;
   height: 252px;
   background-position: -5px -791px;
 }
-
 .kite-kite-5 {
   width: 200px;
   height: 252px;
   background-position: -5px -1053px;
 }
-
 .kite-kite-6 {
   width: 200px;
   height: 252px;
   background-position: -5px -1315px;
 }
-
 .kite-kite-7 {
   width: 200px;
   height: 252px;
   background-position: -5px -1577px;
+}
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
 }
