@@ -2,8 +2,10 @@ const box = document.querySelector(".box");
 const player = document.querySelector(".player");
 const target = document.querySelector(".target");
 const start = document.querySelector(".start");
+const damage = document.querySelector(".damage");
 let gameRunning = false;
 let intervalId = null;
+let damageTaken = 0;
 function movePlayer() {
   let targetPos = 0;
   let hit = 0;
@@ -38,12 +40,17 @@ function slideMob() {
     x = 800;
   }
   if (checkBoops(player.getBoundingClientRect(), box.getBoundingClientRect())) {
-    console.log("I am colliding !!");
+    damageTaken += 1;
+    damage.innerHTML = damageTaken;
+  }
+  if (damageTaken > 50) {
+    gameRunning = false;
+    box.classList.add("stop");
+    stop();
   }
 }
 let stop = function stop() {
   if (box.classList.contains("stop")) {
-    console.log("je suis ici parfois");
     clearInterval(intervalId);
   }
 };

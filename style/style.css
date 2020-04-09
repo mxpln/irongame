@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
 /* main styles */
 html {
   height: 100%;
 }
 body {
   background: center url("../assets/bg.jpg");
+  font-family: "Share Tech Mono", monospace;
   /* position: relative; */
 }
 .start {
@@ -99,4 +102,8 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 1s, opacity 1s linear;
+}
+.damage {
+  color: green;
+  font-size: 48px;
 }
