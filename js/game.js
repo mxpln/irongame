@@ -3,10 +3,12 @@ const player = document.querySelector(".player");
 const target = document.querySelector(".target");
 const start = document.querySelector(".start");
 const damage = document.querySelector(".damage");
+const win = document.querySelector(".win");
 const tryAgainBtn = document.querySelector(".tryAgainBtn");
 let gameRunning = false;
 let intervalId = null;
 let damageTaken = 0;
+win.style.visibility = "hidden";
 function movePlayer() {
   let targetPos = 0;
   let hit = 0;
@@ -23,6 +25,7 @@ function movePlayer() {
         target.style.backgroundPosition = `-0px ${targetPos}px`;
       }
       if (hit === 18) {
+        win.style.visibility = "visible";
         box.classList.add("stop");
         box.classList.add("fade-out");
         stop();
@@ -31,7 +34,7 @@ function movePlayer() {
       }
       setTimeout(function () {
         player.classList.remove("is-jumping");
-      }, 500);
+      }, 400);
     }
   }
 }
@@ -43,10 +46,11 @@ function slideMob() {
   }
   if (checkBoops(player.getBoundingClientRect(), box.getBoundingClientRect())) {
     damageTaken += 1;
-    damage.innerHTML = damageTaken;
+    damage.innerText = `damage: ${damageTaken}`;
   }
-  if (damageTaken > 50) {
+  if (damageTaken === 50) {
     tryAgainBtn.style.visibility = "visible";
+    disabledTry(false);
     gameRunning = false;
     box.classList.add("stop");
     disableBtn(true);
@@ -62,10 +66,10 @@ function tryAgain() {
   box.classList.remove("stop");
   gameRunning = false;
   damageTaken = 0;
-  damage.innerHTML = damageTaken;
+  damage.innerText = `damage: ${damageTaken}`;
   hit = 0;
   x = 0;
-  tryAgainBtn.style.visibility = "hidden";
+  disabledTry(true);
   box.style.transform = `translateX(750px)`;
   timer();
 }
@@ -73,15 +77,15 @@ tryAgainBtn.addEventListener("click", tryAgain);
 start.addEventListener("click", timer);
 function timer() {
   if (!gameRunning) {
-    start.style.visibility = "hidden";
+    start.style.display = "none";
     gameRunning = true;
     intervalId = setInterval(() => {
-      x -= 10;
+      x -= randomNumber(5, 30);
       slideMob();
     }, 20);
   }
 }
-tryAgainBtn.style.visibility = "hidden";
+disabledTry(true);
 function checkBoops(rect1, rect2) {
   if (
     rect1.x < rect2.x + rect2.width &&
@@ -98,5 +102,10 @@ function disableBtn(z) {
 }
 function disabledTry(y) {
   tryAgainBtn.disabled = y;
+}
+function randomNumber(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 movePlayer();

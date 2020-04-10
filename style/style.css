@@ -7,11 +7,15 @@ html {
 body {
   background: center url("../assets/bg.jpg");
   font-family: "Share Tech Mono", monospace;
-  /* position: relative; */
 }
 
+h1 {
+  color: #ffffff;
+  font-size: 48px;
+  text-shadow: 1px 3px 0 #9b23fc;
+}
 .container {
-  top: 150px;
+  top: 0px;
   bottom: 0;
   margin: 0 auto;
   position: relative;
@@ -101,6 +105,76 @@ body {
   transition: visibility 0s 1s, opacity 1s linear;
 }
 .damage {
-  color: green;
+  color: #ffffff;
+  font-size: 24px;
+  text-shadow: 1px 3px 0 red;
+  right: 15px;
+  top: 15px;
+  position: absolute;
+}
+button {
+  font-family: "Share Tech Mono", monospace;
+
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background-color: #f9f9f9;
+  border: 1px solid #dcdcdc;
+  cursor: pointer;
+  color: #9b23fc;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 2px 14px;
+  text-decoration: none;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+header p {
+  text-shadow: 3px 3px 0 #000000;
+}
+
+button:disabled {
+  color: #cccccc;
+}
+
+.win {
+  position: absolute;
+  top: 50%;
+  color: #ffffff;
+
   font-size: 48px;
+  left: 50%;
+  margin-left: -183px;
+  text-shadow: 1px 3px 0 #9b23fc;
+}
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+.close {
+  font-size: 18px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.instructionsText {
+  margin: 0 auto;
+  width: auto;
+  padding: 0px;
+  text-align: center;
+  text-shadow: 3px 3px 0 #000000;
+  color: #fff;
+}
+.instructionsText span {
+  color: red;
 }

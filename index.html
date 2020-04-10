@@ -6,17 +6,44 @@
 
     <link rel="stylesheet" href="./style/style.css" />
 
-    <title>Document</title>
+    <title>SAVE KITE</title>
   </head>
   <body>
     <div class="wrapper">
+      <header>
+        <h1>SAVE KITE</h1>
+        <div class="buttons">
+          <button class="start">start</button>
+          <button class="tryAgainBtn">try again</button>
+        </div>
+        <p>
+          The psychological forces of the city made Kite sick. <br />
+          Only a mysteriouspill can restore her lucidity.
+        </p>
+      </header>
+
       <div class="container">
-        <div><button class="start">start</button></div>
-        <div><button class="tryAgainBtn">try again</button></div>
-        <div class="damage"></div>
+        <div class="text">
+          <div class="win">YOU SAVED KITE</div>
+        </div>
+
+        <div class="damage">damage: 0</div>
         <div class="target kite"></div>
         <div class="player"></div>
         <div class="box"></div>
+      </div>
+      <div class="instructionsText">
+        <h2>How to play</h2>
+        <ol>
+          <li>1. press start</li>
+          <li>2. press W to jump and avoid the monster</li>
+          <li>
+            3. <span>WARNING</span> - The pill can only absorb up to 50 damage.
+          </li>
+          <li>
+            4. You need to deliver the pill an unknown amount of time.
+          </li>
+        </ol>
       </div>
     </div>
     <script src="./js/game.js"></script>
